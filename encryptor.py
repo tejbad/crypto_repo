@@ -1,12 +1,14 @@
 import os
 from cryptography.fernet import Fernet
 import time
+import getpass
 
 def write_key():
     key = Fernet.generate_key()
     with open("key.key", "wb") as key_file:
         key_file.write(key)
-    with open(r"C:\Users\STAR-S\Desktop\key.key", "wb") as key_file:
+        
+    with open(r"C:\\Users\\"+getpass.getuser()+"\\Desktop\\key.key", "wb") as key_file:
         key_file.write(key)
 
 
